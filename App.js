@@ -20,7 +20,7 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class App extends Component<Props> {
+export default class Appx extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>

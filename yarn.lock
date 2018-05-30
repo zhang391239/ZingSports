@@ -4147,6 +4147,10 @@ react-is@^16.3.1:
   version "16.4.0"
   resolved "http://registry.npm.taobao.org/react-is/download/react-is-16.4.0.tgz#cc9fdc855ac34d2e7d9d2eb7059bbc240d35ffcf"
 
+react-native-amap3d@^1.0.0-beta.1:
+  version "1.0.0-beta.1"
+  resolved "http://registry.npm.taobao.org/react-native-amap3d/download/react-native-amap3d-1.0.0-beta.1.tgz#1e01a4ae22a77b1cfd9d1afa7fd2a64ca4746a65"
+
 react-native@0.55.4:
   version "0.55.4"
   resolved "http://registry.npm.taobao.org/react-native/download/react-native-0.55.4.tgz#eecffada3750a928e2ddd07cf11d857ae9751c30"
