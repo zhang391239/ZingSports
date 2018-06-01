@@ -1,7 +1,8 @@
 import { MapView, Polyline } from 'react-native-amap3d';
 import React from 'react';
 import { StyleSheet, Button, View } from 'react-native';
-
+import { connect } from 'react-redux';
+import LoginAction from '../actions/LoginAction';
 const _line3 = new Array();
 class MapPage extends React.Component {
 
@@ -12,11 +13,13 @@ class MapPage extends React.Component {
             longitude: 0,
             locationEnabled: true,
             drawLineEnabled: true,
-            _line3:[],
+            _line3: [],
         }
     }
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps.message);
+    }
 
-    
     render() {
         return (
 
@@ -28,8 +31,8 @@ class MapPage extends React.Component {
                             latitude: nativeEvent.latitude,
                             longitude: nativeEvent.longitude,
                         });
-                        
-                        _line3 = _line3.concat( [{
+
+                        _line3 = _line3.concat([{
                             latitude: this.state.latitude,
                             longitude: this.state.longitude,
                         }]);
@@ -48,7 +51,7 @@ class MapPage extends React.Component {
                         gradient={true}
                         width={5}
                         colors={['#f44336', '#2196f3', '#4caf50']}
-                        coordinates={_line3.slice(1,_line3.length-1)}
+                        coordinates={_line3.slice(1, _line3.length - 1)}
                     />
                 </MapView>
                 <Button onPress={() => {
@@ -60,6 +63,8 @@ class MapPage extends React.Component {
                 <Button onPress={() => {
                     this.setState({ drawLineEnabled: !this.state.drawLineEnabled, });
                     _line3 = [];
+                    this.props.message = 0;
+                    this.props.dispatch(LoginAction(1));
                 }}
                     title={this.state.drawLineEnabled ? "绘制线段" : "取消线段"}
                     style={styles.style_view_commit}
@@ -100,4 +105,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 });
-export default MapPage;
+
+function sel(store) {
+    return {
+        AccountReducer: store.AccountReducer,
+    }
+}
+
+
+
+export default connect(sel)(MapPage);

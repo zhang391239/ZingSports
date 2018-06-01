@@ -1,5 +1,5 @@
 import { AppRegistry } from 'react-native';
-import App from './src/index';
 import {} from 'react-native-amap3d';
+import Root from './src/Root';
 
-AppRegistry.registerComponent('ZingSports', () => App.MapPage);
+AppRegistry.registerComponent('ZingSports', () => Root);
